@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0f0f0f; line-height: 1.6; }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 0.5px solid #e5e5e5; position: sticky; top: 0; background: #fff; z-index: 100; }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; color: #0f0f0f; }
+  .logo span { color: #1D9E75; }
+  .nav-cta { background: #1D9E75; color: #fff; border: none; padding: 0.6rem 1.4rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .nav-cta:hover { background: #0F6E56; }
+
+  .hero { background: #0f0f0f; padding: 5rem 2rem 4rem; text-align: center; }
+  .hero-inner { max-width: 740px; margin: 0 auto; }
+  .hero-tag { display: inline-block; background: #1a1a1a; border: 0.5px solid #2a2a2a; color: #5DCAA5; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 4px; margin-bottom: 2rem; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 0.95; letter-spacing: 0.03em; color: #fff; margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: normal; color: #1D9E75; }
+  .hero-sub { font-size: 1.05rem; color: #888; max-width: 500px; margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.7; }
+  .hero-sub strong { color: #ccc; font-weight: 500; }
+  .btn-hero { background: #1D9E75; color: #fff; border: none; padding: 1rem 2.4rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s; display: inline-block; }
+  .btn-hero:hover { background: #0F6E56; }
+  .hero-note { font-size: 0.8rem; color: #444; margin-top: 1rem; }
+  .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem; padding-top: 3rem; border-top: 0.5px solid #1e1e1e; flex-wrap: wrap; }
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.05em; line-height: 1; }
+  .hero-stat-label { font-size: 0.8rem; color: #555; margin-top: 0.3rem; }
+
+  .forwho { background: #f7f7f5; padding: 4rem 2rem; }
+  .forwho-inner { max-width: 860px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #1D9E75; margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.03em; line-height: 1.05; margin-bottom: 1rem; color: #0f0f0f; }
+  .section-sub { font-size: 0.95rem; color: #666; font-weight: 300; margin-bottom: 2.5rem; max-width: 540px; line-height: 1.7; }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .who-card { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 10px; padding: 1.4rem; }
+  .who-card h3 { font-size: 0.95rem; font-weight: 500; color: #0f0f0f; margin-bottom: 0.4rem; }
+  .who-card p { font-size: 0.85rem; color: #888; font-weight: 300; line-height: 1.6; }
+  .who-check { width: 28px; height: 28px; background: #E1F5EE; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .who-check svg { width: 14px; height: 14px; }
+
+  .whatyouget { max-width: 860px; margin: 0 auto; padding: 5rem 2rem; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 580px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 2rem; position: relative; overflow: hidden; }
+  .pillar-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: #f0f0ee; line-height: 1; position: absolute; top: 0.5rem; right: 1rem; letter-spacing: 0.03em; pointer-events: none; }
+  .pillar h3 { font-size: 1.05rem; font-weight: 500; color: #0f0f0f; margin-bottom: 0.6rem; position: relative; }
+  .pillar p { font-size: 0.88rem; color: #777; font-weight: 300; line-height: 1.7; position: relative; }
+  .pillar-tag { display: inline-block; background: #E1F5EE; color: #0F6E56; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; }
+
+  .training { background: #0f0f0f; }
+  .training-inner { max-width: 860px; margin: 0 auto; padding: 5rem 2rem; }
+  .training-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.03em; color: #fff; margin-bottom: 0.6rem; }
+  .training-title em { font-style: normal; color: #1D9E75; }
+  .training-sub { font-size: 0.95rem; color: #666; font-weight: 300; margin-bottom: 2.5rem; max-width: 500px; line-height: 1.7; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; gap: 2rem; } }
+  .col-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #5DCAA5; margin-bottom: 1.2rem; }
+  .t-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .t-item { display: flex; gap: 0.9rem; align-items: flex-start; }
+  .t-icon { width: 20px; height: 20px; background: #1D9E75; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+  .t-icon svg { width: 10px; height: 10px; }
+  .t-item p { font-size: 0.9rem; color: #bbb; font-weight: 300; line-height: 1.6; }
+  .t-item p strong { color: #fff; font-weight: 500; }
+
+  .accordion { display: flex; flex-direction: column; gap: 0.5rem; }
+  .acc-item { border: 0.5px solid #222; border-radius: 8px; overflow: hidden; }
+  .acc-item.open { border-color: #1D9E75; }
+  .acc-trigger { width: 100%; background: none; border: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.1rem; cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; }
+  .acc-label { font-size: 0.88rem; color: #ddd; font-weight: 500; line-height: 1.4; }
+  .acc-chevron { width: 18px; height: 18px; border: 0.5px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color 0.2s, transform 0.25s; }
+  .acc-item.open .acc-chevron { border-color: #1D9E75; transform: rotate(180deg); }
+  .acc-chevron svg { width: 9px; height: 9px; }
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.25s; padding: 0 1.1rem; }
+  .acc-item.open .acc-body { max-height: 100px; padding: 0 1.1rem 0.9rem; }
+  .acc-body p { font-size: 0.84rem; color: #777; font-weight: 300; line-height: 1.65; border-top: 0.5px solid #1e1e1e; padding-top: 0.7rem; }
+
+  .testi { background: #f7f7f5; padding: 5rem 2rem; }
+  .testi-inner { max-width: 860px; margin: 0 auto; }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
+  .testi-card { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1.5rem; }
+  .testi-stars { color: #EF9F27; font-size: 0.85rem; margin-bottom: 0.8rem; letter-spacing: -1px; }
+  .testi-card p { font-size: 0.9rem; color: #444; font-weight: 300; line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+  .testi-avatar { width: 34px; height: 34px; border-radius: 50%; background: #E1F5EE; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 500; color: #0F6E56; flex-shrink: 0; }
+  .testi-name { font-size: 0.83rem; font-weight: 500; color: #0f0f0f; }
+  .testi-role { font-size: 0.76rem; color: #aaa; }
+
+  .booking { max-width: 580px; margin: 0 auto; padding: 6rem 2rem; text-align: center; }
+  .booking-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: 0.03em; line-height: 1.05; margin-bottom: 1rem; color: #0f0f0f; }
+  .booking-sub { font-size: 0.95rem; color: #777; font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; }
+  .booking-form { display: flex; flex-direction: column; gap: 0.9rem; max-width: 380px; margin: 0 auto; }
+  .booking-form input { border: 0.5px solid #ddd; border-radius: 6px; padding: 0.85rem 1.2rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: #0f0f0f; outline: none; transition: border-color 0.2s; background: #fff; }
+  .booking-form input:focus { border-color: #1D9E75; }
+  .booking-form input::placeholder { color: #bbb; }
+  .btn-book { background: #1D9E75; color: #fff; border: none; padding: 1rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s; margin-top: 0.4rem; }
+  .btn-book:hover { background: #0F6E56; }
+  .booking-disclaimer { font-size: 0.78rem; color: #ccc; margin-top: 1rem; }
+
+  footer { border-top: 0.5px solid #e5e5e5; text-align: center; padding: 2rem; font-size: 0.8rem; color: #bbb; }
+  footer span { color: #1D9E75; }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+
+<nav>
+  <div class="logo">Gains<span>.</span>Academy</div>
+  <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="nav-cta" style="text-decoration:none;">Book Free Call</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">For Tradies & First-Timers</div>
+    <h1>STOP TRADING<br>TIME FOR <em>MONEY.</em></h1>
+    <p class="hero-sub">Gains Academy teaches tradies and everyday people how to build a <strong>personal or faceless brand</strong> and close <strong>high-ticket sales</strong> — no experience needed.</p>
+    <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="btn-hero" style="text-decoration:none;">Book Your Free Strategy Call →</a>
+    <p class="hero-note">Free. No obligation. Takes 30 seconds to book.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">200+</div>
+        <div class="hero-stat-label">Members in the community</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">$0</div>
+        <div class="hero-stat-label">Experience needed to start</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">90D</div>
+        <div class="hero-stat-label">Average time to first results</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="forwho">
+  <div class="forwho-inner">
+    <div class="section-label">This is for you if...</div>
+    <h2 class="section-title">YOU'RE DONE WORKING HARDER.<br>NOW LET'S WORK SMARTER.</h2>
+    <p class="section-sub">You don't need a degree, a following, or any tech skills. You just need to show up and follow the system.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-check"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>You work in trades</h3>
+        <p>Sparky, plumber, builder, concreter — you're good at your job but tired of swapping hours for dollars.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-check"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>You're new to content</h3>
+        <p>Never made a video or posted online for money? Perfect. We teach it from scratch — personal or faceless.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-check"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>You've never done sales</h3>
+        <p>High-ticket sales sounds scary. We break it down so anyone can learn to close calls with confidence.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-check"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>You want a second income</h3>
+        <p>Keep your job while you build. Most members start earning online before they quit anything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="whatyouget">
+  <div class="section-label">Inside Gains Academy</div>
+  <h2 class="section-title">TWO SKILLS. ONE COMMUNITY.<br>UNLIMITED EARNING POTENTIAL.</h2>
+  <p class="section-sub">We teach two of the most in-demand online skills — and we teach them to people starting from zero.</p>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-tag">Content Creation</div>
+      <h3>Build a brand that makes money while you sleep</h3>
+      <p>Learn how to grow a personal or faceless brand on social media and monetise it — even if you've never posted a thing online.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-tag">High-Ticket Sales</div>
+      <h3>Close calls and earn more than a day on site</h3>
+      <p>We teach you how to get on calls, build trust, and close high-ticket deals — from your first ever sales conversation.</p>
+    </div>
+    <div class="pillar" style="grid-column: 1 / -1;">
+      <div class="pillar-num">+</div>
+      <div class="pillar-tag">Community</div>
+      <h3>You're not doing this alone</h3>
+      <p>Join a no-BS community of tradies and everyday people all learning the same skills, holding each other accountable, and celebrating wins together. Access to coaching, live calls, and support — all inside Gains Academy.</p>
+    </div>
+  </div>
+</section>
+
+<div class="training">
+  <div class="training-inner">
+    <div class="section-label" style="color:#5DCAA5;">Free Training</div>
+    <h2 class="training-title">WHAT YOU'LL LEARN ON THE <em>FREE</em> TRAINING</h2>
+    <p class="training-sub">Built for tradies and hard workers who are ready to stop leaving money on the table.</p>
+    <div class="two-col">
+      <div>
+        <p class="col-label">What you'll learn</p>
+        <div class="t-list">
+          <div class="t-item">
+            <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <p>Why <strong>staying on the tools keeps you stuck</strong> — and the smarter way to make money</p>
+          </div>
+          <div class="t-item">
+            <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <p><strong>How to start today</strong> even if you've got zero tech or online skills</p>
+          </div>
+          <div class="t-item">
+            <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <p>The real reason <strong>most "online money" advice fails</strong> — and what actually works for tradies like us</p>
+          </div>
+          <div class="t-item">
+            <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <p>How to learn <strong>an online skill that can pay more than on site</strong></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="col-label">What happens on the call</p>
+        <div class="accordion">
+          <div class="acc-item">
+            <button class="acc-trigger" onclick="toggleAcc(this)">
+              <span class="acc-label">We review your current situation</span>
+              <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="acc-body"><p>We look at your income, goals, and exactly where you're stuck — so we can map out a path that fits your life.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" onclick="toggleAcc(this)">
+              <span class="acc-label">We identify the fastest path to earning online</span>
+              <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="acc-body"><p>Based on your skills and schedule, we work out the most realistic route to making money online for you specifically.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" onclick="toggleAcc(this)">
+              <span class="acc-label">You leave with a clear action plan</span>
+              <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="acc-body"><p>No fluff, no homework — just clear next steps you can act on straight away.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" onclick="toggleAcc(this)">
+              <span class="acc-label">Zero pressure — 100% free</span>
+              <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="acc-body"><p>This call is completely free. No obligation to join anything — just a straight conversation about what's possible for you.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 3rem; padding-top: 2.5rem; border-top: 0.5px solid #1e1e1e;">
+      <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="btn-hero" style="text-decoration:none;">Claim Your Free Spot →</a>
+      <p style="font-size:0.78rem; color:#444; margin-top:0.8rem;">Limited spots. No experience needed.</p>
+    </div>
+  </div>
+</div>
+
+<section class="testi">
+  <div class="testi-inner">
+    <div class="section-label">Real results</div>
+    <h2 class="section-title">TRADIES WHO MADE THE SWITCH</h2>
+    <p class="section-sub">These are real people who started with zero online experience.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"I was a sparky working 60-hour weeks. Six months in I closed my first high-ticket client and haven't looked back."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div><div class="testi-name">Jake M.</div><div class="testi-role">Electrician → Online Coach</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Never made a video in my life. Now my faceless page brings in leads every week without me lifting a tool."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">TR</div>
+          <div><div class="testi-name">Tyler R.</div><div class="testi-role">Plumber → Content Creator</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The community is the real deal. No hype, just people showing their work and helping each other grow."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div><div class="testi-name">Sam K.</div><div class="testi-role">Builder → Gains Academy Member</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="section-label">Get started</div>
+  <h2 class="booking-title">BOOK YOUR FREE CALL. START THIS WEEK.</h2>
+  <p class="booking-sub">30 minutes. No pitch. No BS. Just a straight conversation about where you're at and how to get to where you want to be.</p>
+  <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="btn-book" style="display:inline-block; text-decoration:none; padding: 1rem 2.4rem;">Book My Free Call →</a>
+  <p class="booking-disclaimer">No spam. No obligation. Just a real conversation.</p>
+</section>
+
+<footer>
+  &copy; 2026 <span>Gains Academy</span>. All rights reserved.
+</footer>
+
+<script>
+function toggleAcc(trigger) {
+  const item = trigger.closest('.acc-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+function handleBook() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  if (!name || !email) { alert('Please fill in your name and email to continue.'); return; }
+  const btn = document.querySelector('.btn-book');
+  btn.textContent = "You're booked in! We'll be in touch ✓";
+  btn.style.background = '#0F6E56';
+  btn.disabled = true;
+}
+</script>
