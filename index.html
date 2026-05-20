@@ -722,13 +722,47 @@ setInterval(() => {
 
 // Social proof toasts
 const toastPeople = [
-  { init: 'JM', name: 'Jake from Melbourne', action: 'just booked a free strategy call', time: '2 minutes ago' },
-  { init: 'TR', name: 'Tyler from Brisbane', action: 'just joined Gains Academy', time: '5 minutes ago' },
-  { init: 'SK', name: 'Sam from Sydney', action: 'just booked a free strategy call', time: 'just now' },
-  { init: 'CP', name: 'Chris from Perth', action: 'just closed his first high-ticket deal', time: '12 minutes ago' },
-  { init: 'BW', name: 'Brayden from Adelaide', action: 'just booked a free strategy call', time: '3 minutes ago' },
-  { init: 'LH', name: 'Liam from Gold Coast', action: 'just joined Gains Academy', time: '8 minutes ago' },
+  { init: 'JM', name: 'Jake from Melbourne', action: 'just booked a free strategy call', time: 'just now' },
+  { init: 'TR', name: 'Tyler from Brisbane', action: 'just joined Gains Academy', time: '2 minutes ago' },
+  { init: 'SK', name: 'Sam from Sydney', action: 'just booked a free strategy call', time: '4 minutes ago' },
+  { init: 'CP', name: 'Chris from Perth', action: 'just closed his first high-ticket deal', time: '6 minutes ago' },
+  { init: 'BW', name: 'Brayden from Adelaide', action: 'just booked a free strategy call', time: '1 minute ago' },
+  { init: 'LH', name: 'Liam from Gold Coast', action: 'just joined Gains Academy', time: '3 minutes ago' },
+  { init: 'NR', name: 'Nathan from Newcastle', action: 'just booked a free strategy call', time: 'just now' },
+  { init: 'DK', name: 'Dylan from Darwin', action: 'just joined Gains Academy', time: '7 minutes ago' },
+  { init: 'MT', name: 'Mitch from Townsville', action: 'just closed his first high-ticket deal', time: '5 minutes ago' },
+  { init: 'RB', name: 'Ryan from Ballarat', action: 'just booked a free strategy call', time: '2 minutes ago' },
+  { init: 'JF', name: 'Josh from Fremantle', action: 'just joined Gains Academy', time: 'just now' },
+  { init: 'AH', name: 'Aaron from Hobart', action: 'just booked a free strategy call', time: '9 minutes ago' },
+  { init: 'ZP', name: 'Zac from Parramatta', action: 'just made his first sale online', time: '3 minutes ago' },
+  { init: 'BN', name: 'Blake from Noosa', action: 'just booked a free strategy call', time: '1 minute ago' },
+  { init: 'TC', name: 'Tom from Cairns', action: 'just joined Gains Academy', time: '11 minutes ago' },
+  { init: 'WG', name: 'Will from Geelong', action: 'just closed his first high-ticket deal', time: '4 minutes ago' },
+  { init: 'HL', name: 'Hunter from Launceston', action: 'just booked a free strategy call', time: 'just now' },
+  { init: 'KD', name: 'Kyle from Dandenong', action: 'just joined Gains Academy', time: '6 minutes ago' },
+  { init: 'OW', name: 'Owen from Wollongong', action: 'just booked a free strategy call', time: '2 minutes ago' },
+  { init: 'FC', name: 'Finn from Canberra', action: 'just made his first sale online', time: '8 minutes ago' },
+  { init: 'JB', name: 'Jordan from Bendigo', action: 'just booked a free strategy call', time: '3 minutes ago' },
+  { init: 'MP', name: 'Marcus from Penrith', action: 'just joined Gains Academy', time: 'just now' },
+  { init: 'LE', name: 'Luke from Essendon', action: 'just booked a free strategy call', time: '5 minutes ago' },
+  { init: 'CB', name: 'Caleb from Bundaberg', action: 'just closed his first high-ticket deal', time: '7 minutes ago' },
+  { init: 'ST', name: 'Shane from Toowoomba', action: 'just booked a free strategy call', time: '1 minute ago' },
+  { init: 'GR', name: 'Grant from Rockingham', action: 'just joined Gains Academy', time: '10 minutes ago' },
+  { init: 'EV', name: 'Ethan from Vivienne', action: 'just booked a free strategy call', time: '4 minutes ago' },
+  { init: 'PM', name: 'Patrick from Mackay', action: 'just made his first sale online', time: 'just now' },
+  { init: 'HB', name: 'Harry from Bathurst', action: 'just booked a free strategy call', time: '6 minutes ago' },
+  { init: 'DM', name: 'Dean from Mandurah', action: 'just joined Gains Academy', time: '2 minutes ago' },
 ];
+
+// Shuffle array so first toast is random every visit
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+shuffleArray(toastPeople);
 let toastIdx = 0;
 function showToast() {
   const t = toastPeople[toastIdx % toastPeople.length];
