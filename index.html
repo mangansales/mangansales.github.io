@@ -156,8 +156,70 @@
   .cookie-accept { background: #1D9E75; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
   .cookie-decline { background: none; color: #555; border: 0.5px solid #333; padding: 0.6rem 1.2rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; }
   .cookie-banner.hidden { display: none; }
+
+  /* ── Scroll progress bar ── */
+  #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #1D9E75; width: 0%; z-index: 9999; transition: width 0.1s linear; }
+
+  /* ── Back to top ── */
+  #back-top { position: fixed; bottom: 90px; right: 1.2rem; width: 40px; height: 40px; background: #1D9E75; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 990; box-shadow: 0 4px 14px rgba(29,158,117,0.35); border: none; }
+  #back-top.show { opacity: 1; pointer-events: all; }
+  #back-top svg { width: 16px; height: 16px; }
+  @media (min-width: 769px) { #back-top { bottom: 1.5rem; } }
+
+  /* ── Platforms bar ── */
+  .platforms { background: #f7f7f5; border-top: 0.5px solid #ececec; border-bottom: 0.5px solid #ececec; padding: 1.8rem 2rem; }
+  .platforms-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 0.6rem 2.5rem; flex-wrap: wrap; }
+  .platforms-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; margin-right: 1rem; }
+  .platform-pill { display: flex; align-items: center; gap: 0.5rem; background: #fff; border: 0.5px solid #e5e5e5; border-radius: 8px; padding: 0.5rem 1rem; }
+  .platform-pill svg { width: 18px; height: 18px; }
+  .platform-pill span { font-size: 0.82rem; font-weight: 500; color: #444; }
+
+  /* ── How it works ── */
+  .howitworks { background: #0f0f0f; padding: 5rem 2rem; }
+  .howitworks-inner { max-width: 860px; margin: 0 auto; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; position: relative; }
+  @media (max-width: 640px) { .steps { grid-template-columns: 1fr; } }
+  .step { background: #161616; border: 0.5px solid #222; border-radius: 14px; padding: 2rem 1.5rem; position: relative; }
+  .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: #1D9E75; line-height: 1; margin-bottom: 0.8rem; }
+  .step h3 { font-size: 1rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.86rem; color: #666; font-weight: 300; line-height: 1.7; }
+  .step-arrow { display: none; }
+  @media (min-width: 641px) {
+    .step-arrow { display: flex; position: absolute; top: 50%; right: -1.1rem; transform: translateY(-50%); z-index: 2; width: 22px; height: 22px; background: #1D9E75; border-radius: 50%; align-items: center; justify-content: center; }
+    .step-arrow svg { width: 10px; height: 10px; }
+    .step:last-child .step-arrow { display: none; }
+  }
+
+  /* ── Urgency bar ── */
+  .urgency { background: #0f0f0f; border-top: 0.5px solid #1a1a1a; padding: 0.7rem 2rem; text-align: center; }
+  .urgency-inner { display: inline-flex; align-items: center; gap: 0.6rem; }
+  .urgency-dot { width: 8px; height: 8px; background: #1D9E75; border-radius: 50%; animation: pulse 1.8s ease-in-out infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+  .urgency-text { font-size: 0.82rem; color: #888; font-weight: 300; }
+  .urgency-text strong { color: #fff; font-weight: 500; }
+  .urgency-text em { font-style: normal; color: #1D9E75; font-weight: 500; }
+
+  /* ── Animated counters ── */
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.05em; line-height: 1; }
+
+  /* ── Exit intent popup ── */
+  .exit-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .exit-overlay.show { opacity: 1; pointer-events: all; }
+  .exit-box { background: #0f0f0f; border: 0.5px solid #222; border-radius: 16px; padding: 2.5rem 2rem; max-width: 460px; width: 100%; text-align: center; position: relative; transform: translateY(20px); transition: transform 0.3s; }
+  .exit-overlay.show .exit-box { transform: none; }
+  .exit-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #555; font-size: 1.4rem; cursor: pointer; line-height: 1; }
+  .exit-tag { display: inline-block; background: #1a1a1a; border: 0.5px solid #2a2a2a; color: #5DCAA5; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 1.2rem; }
+  .exit-box h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #fff; letter-spacing: 0.03em; line-height: 1.05; margin-bottom: 0.8rem; }
+  .exit-box h2 em { font-style: normal; color: #1D9E75; }
+  .exit-box p { font-size: 0.9rem; color: #888; font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem; }
+  .exit-cta { display: block; background: #1D9E75; color: #fff; text-decoration: none; padding: 0.95rem 2rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; margin-bottom: 0.8rem; transition: background 0.2s; }
+  .exit-cta:hover { background: #0F6E56; }
+  .exit-skip { font-size: 0.78rem; color: #444; cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; }
+  .exit-skip:hover { color: #666; }
 </style>
 
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 <nav>
   <div class="logo">Gains<span>.</span>Academy</div>
   <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="nav-cta" style="text-decoration:none;">Book Free Call</a>
@@ -176,6 +238,29 @@
   </div>
 </div>
 
+<!-- Platforms bar -->
+<div class="platforms reveal">
+  <div class="platforms-inner">
+    <span class="platforms-label">We teach on</span>
+    <div class="platform-pill">
+      <svg viewBox="0 0 24 24" fill="#000"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+      <span>TikTok</span>
+    </div>
+    <div class="platform-pill">
+      <svg viewBox="0 0 24 24" fill="url(#ig)"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f09433"/><stop offset="25%" style="stop-color:#e6683c"/><stop offset="50%" style="stop-color:#dc2743"/><stop offset="75%" style="stop-color:#cc2366"/><stop offset="100%" style="stop-color:#bc1888"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      <span>Instagram</span>
+    </div>
+    <div class="platform-pill">
+      <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      <span>YouTube</span>
+    </div>
+    <div class="platform-pill">
+      <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <span>Facebook</span>
+    </div>
+  </div>
+</div>
+
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-tag">For Tradies & First-Timers</div>
@@ -185,16 +270,44 @@
     <p class="hero-note">Free. No obligation. Takes 30 seconds to book.</p>
     <div class="hero-stats">
       <div>
-        <div class="hero-stat-num">200+</div>
+        <div class="hero-stat-num" data-target="200" data-suffix="+">0+</div>
         <div class="hero-stat-label">Members in the community</div>
       </div>
       <div>
-        <div class="hero-stat-num">$0</div>
+        <div class="hero-stat-num" data-target="0" data-suffix="">$0</div>
         <div class="hero-stat-label">Experience needed to start</div>
       </div>
       <div>
-        <div class="hero-stat-num">90D</div>
+        <div class="hero-stat-num" data-target="90" data-suffix="D">0D</div>
         <div class="hero-stat-label">Average time to first results</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="howitworks reveal">
+  <div class="howitworks-inner">
+    <div class="section-label" style="color:#5DCAA5;">Simple process</div>
+    <h2 class="training-title">HOW IT <em>WORKS</em></h2>
+    <p class="training-sub">Three steps. No fluff. Just a clear path from where you are to where you want to be.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Book your free call</h3>
+        <p>Takes 30 seconds. Pick a time that suits you — no prep needed, just show up as you are.</p>
+        <div class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Get your custom plan</h3>
+        <p>We map out the fastest route to online income based on your situation, schedule, and goals.</p>
+        <div class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Start earning online</h3>
+        <p>Follow the system, stay in the community, and start building income alongside your current job.</p>
       </div>
     </div>
   </div>
@@ -404,6 +517,14 @@
   </div>
 </section>
 
+<!-- Urgency bar -->
+<div class="urgency">
+  <div class="urgency-inner">
+    <div class="urgency-dot"></div>
+    <p class="urgency-text"><strong><span id="spot-count">4</span> spots remaining</strong> this week — <em>book before they're gone</em></p>
+  </div>
+</div>
+
 <section class="booking" id="booking">
   <div class="section-label">Get started</div>
   <h2 class="booking-title">BOOK YOUR FREE CALL. START THIS WEEK.</h2>
@@ -428,6 +549,18 @@
   <div class="cookie-btns">
     <button class="cookie-accept" onclick="dismissCookie()">Got it</button>
     <button class="cookie-decline" onclick="dismissCookie()">Decline</button>
+  </div>
+</div>
+
+<!-- Exit intent popup -->
+<div class="exit-overlay" id="exitOverlay">
+  <div class="exit-box">
+    <button class="exit-close" onclick="closeExit()">✕</button>
+    <div class="exit-tag">Wait — don't go yet</div>
+    <h2>ONE FREE CALL<br>COULD CHANGE <em>EVERYTHING.</em></h2>
+    <p>You've got nothing to lose. 30 minutes, zero pressure, completely free. Find out if Gains Academy is right for you.</p>
+    <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="exit-cta">Book My Free Strategy Call →</a>
+    <button class="exit-skip" onclick="closeExit()">No thanks, I'll keep trading time for money</button>
   </div>
 </div>
 
@@ -470,5 +603,58 @@ function dismissCookie() {
 if (localStorage.getItem('cookieAccepted')) {
   document.getElementById('cookieBanner').classList.add('hidden');
 }
+
+// Scroll progress bar
+const progressBar = document.getElementById('progress-bar');
+const backTop = document.getElementById('back-top');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrolled / total * 100) + '%';
+  backTop.classList.toggle('show', scrolled > 400);
+});
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Animated counters
+function animateCount(el, target, suffix, duration) {
+  let start = 0;
+  const step = Math.ceil(target / (duration / 16));
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = start + suffix;
+    if (start >= target) clearInterval(timer);
+  }, 16);
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const raw = el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      animateCount(el, parseInt(raw), suffix, 1200);
+      statsObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => statsObserver.observe(el));
+
+// Spot count — random between 3-6, feels live
+document.getElementById('spot-count').textContent = Math.floor(Math.random() * 4) + 3;
+
+// Exit intent
+let exitShown = false;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY < 10 && !exitShown && !sessionStorage.getItem('exitSeen')) {
+    document.getElementById('exitOverlay').classList.add('show');
+    exitShown = true;
+    sessionStorage.setItem('exitSeen', '1');
+  }
+});
+function closeExit() {
+  document.getElementById('exitOverlay').classList.remove('show');
+}
+document.getElementById('exitOverlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('exitOverlay')) closeExit();
+});
 
 </script>
