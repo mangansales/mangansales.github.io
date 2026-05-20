@@ -115,12 +115,66 @@
     nav { padding: 1rem 1.5rem; }
     .hero-stats { gap: 2rem; }
   }
+
+  /* ── Scroll fade-in ── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── Social proof ticker ── */
+  .ticker-wrap { background: #1D9E75; overflow: hidden; padding: 0.55rem 0; }
+  .ticker-track { display: flex; gap: 3rem; white-space: nowrap; animation: ticker 22s linear infinite; }
+  .ticker-track span { font-size: 0.78rem; font-weight: 500; color: #fff; letter-spacing: 0.06em; text-transform: uppercase; }
+  .ticker-track span::before { content: '★ '; opacity: 0.7; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── FAQ ── */
+  .faq { background: #fff; padding: 5rem 2rem; }
+  .faq-inner { max-width: 680px; margin: 0 auto; }
+  .faq-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 2.5rem; }
+  .faq-item { border: 0.5px solid #e5e5e5; border-radius: 10px; overflow: hidden; }
+  .faq-item.open { border-color: #1D9E75; }
+  .faq-trigger { width: 100%; background: none; border: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; }
+  .faq-q { font-size: 0.93rem; font-weight: 500; color: #0f0f0f; line-height: 1.4; }
+  .faq-icon { width: 22px; height: 22px; border: 0.5px solid #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; color: #aaa; transition: transform 0.25s, border-color 0.2s; line-height: 1; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); border-color: #1D9E75; color: #1D9E75; }
+  .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s; padding: 0 1.3rem; }
+  .faq-item.open .faq-body { max-height: 200px; padding: 0 1.3rem 1.1rem; }
+  .faq-body p { font-size: 0.88rem; color: #666; font-weight: 300; line-height: 1.7; border-top: 0.5px solid #f0f0f0; padding-top: 0.8rem; }
+
+  /* ── Mobile sticky CTA ── */
+  .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: #fff; border-top: 0.5px solid #e5e5e5; padding: 0.9rem 1.5rem; box-shadow: 0 -4px 24px rgba(0,0,0,0.08); }
+  .sticky-cta a { display: block; background: #1D9E75; color: #fff; text-align: center; padding: 0.9rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; text-decoration: none; }
+  .sticky-cta a:active { background: #0F6E56; }
+  @media (max-width: 768px) { .sticky-cta { display: block; } body { padding-bottom: 80px; } }
+
+  /* ── Cookie banner ── */
+  .cookie-banner { position: fixed; bottom: 80px; left: 1rem; right: 1rem; max-width: 480px; margin: 0 auto; background: #0f0f0f; border: 0.5px solid #222; border-radius: 12px; padding: 1.2rem 1.4rem; z-index: 998; display: flex; flex-direction: column; gap: 0.8rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  @media (min-width: 769px) { .cookie-banner { bottom: 1.5rem; } }
+  .cookie-banner p { font-size: 0.83rem; color: #aaa; font-weight: 300; line-height: 1.6; }
+  .cookie-banner p a { color: #1D9E75; text-decoration: none; }
+  .cookie-btns { display: flex; gap: 0.6rem; }
+  .cookie-accept { background: #1D9E75; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
+  .cookie-decline { background: none; color: #555; border: 0.5px solid #333; padding: 0.6rem 1.2rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; }
+  .cookie-banner.hidden { display: none; }
 </style>
 
 <nav>
   <div class="logo">Gains<span>.</span>Academy</div>
   <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="nav-cta" style="text-decoration:none;">Book Free Call</a>
 </nav>
+
+<!-- Social proof ticker -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>TikTok Growth</span><span>High-Ticket Sales</span><span>Faceless Brands</span>
+    <span>200+ Members</span><span>No Experience Needed</span><span>Instagram Growth</span>
+    <span>YouTube Monetisation</span><span>First Sale in 90 Days</span><span>Work From Anywhere</span>
+    <!-- duplicate for seamless loop -->
+    <span>TikTok Growth</span><span>High-Ticket Sales</span><span>Faceless Brands</span>
+    <span>200+ Members</span><span>No Experience Needed</span><span>Instagram Growth</span>
+    <span>YouTube Monetisation</span><span>First Sale in 90 Days</span><span>Work From Anywhere</span>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-inner">
@@ -304,6 +358,52 @@
   </div>
 </section>
 
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <div class="faq-inner">
+    <div class="section-label">Got questions?</div>
+    <h2 class="section-title">STUFF PEOPLE ALWAYS ASK</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">Do I need to show my face on camera?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body"><p>Nope. We teach both personal brands and fully faceless content — you choose what works for you. Plenty of our members earn great money without ever appearing on camera.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">I'm not tech-savvy at all. Will I keep up?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body"><p>100%. We built this for tradies and everyday people, not tech guys. Everything is broken down step by step. If you can use a phone, you can do this.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">How much time do I need each week?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body"><p>Most members start with just 5–10 hours a week alongside their regular job. You don't need to quit anything to get started — build first, then decide.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">How quickly can I start making money?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body"><p>Results vary, but our average member sees their first results within 90 days. Some close their first deal much sooner. The strategy call will give you a realistic timeline for your situation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">Is the strategy call really free?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body"><p>Yes, completely free. No hidden fees, no pressure. It's a genuine 30-minute conversation to see if we can help — nothing more.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="booking" id="booking">
   <div class="section-label">Get started</div>
   <h2 class="booking-title">BOOK YOUR FREE CALL. START THIS WEEK.</h2>
@@ -315,6 +415,21 @@
 <footer>
   &copy; 2026 <span>Gains Academy</span>. All rights reserved.
 </footer>
+
+
+<!-- Mobile sticky CTA -->
+<div class="sticky-cta">
+  <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank">Book Your Free Strategy Call →</a>
+</div>
+
+<!-- Cookie banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to improve your experience. By continuing to use this site you agree to our use of cookies. <a href="#">Learn more</a></p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="dismissCookie()">Got it</button>
+    <button class="cookie-decline" onclick="dismissCookie()">Decline</button>
+  </div>
+</div>
 
 <script>
 function toggleAcc(trigger) {
@@ -332,4 +447,28 @@ function handleBook() {
   btn.style.background = '#0F6E56';
   btn.disabled = true;
 }
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ accordion
+function toggleFaq(trigger) {
+  const item = trigger.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Cookie banner
+function dismissCookie() {
+  document.getElementById('cookieBanner').classList.add('hidden');
+  localStorage.setItem('cookieAccepted', '1');
+}
+if (localStorage.getItem('cookieAccepted')) {
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
 </script>
