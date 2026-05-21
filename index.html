@@ -35,7 +35,8 @@
   .btn-hero:hover { background: #0F6E56; }
   .hero-note { font-size: 0.8rem; color: #444; margin-top: 1rem; }
   .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem; padding-top: 3rem; border-top: 0.5px solid #1e1e1e; flex-wrap: wrap; }
-  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.05em; line-height: 1; }
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.05em; line-height: 1; opacity: 0; transition: opacity 0.4s ease; }
+  .hero-stat-num.counted { opacity: 1; }
   .hero-stat-label { font-size: 0.8rem; color: #555; margin-top: 0.3rem; }
 
   .forwho { background: #f7f7f5; padding: 4rem 2rem; }
@@ -196,7 +197,8 @@
   .urgency-text em { font-style: normal; color: #1D9E75; font-weight: 500; }
 
   /* ── Animated counters ── */
-  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.05em; line-height: 1; }
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.05em; line-height: 1; opacity: 0; transition: opacity 0.4s ease; }
+  .hero-stat-num.counted { opacity: 1; }
 
   /* ── Exit intent popup ── */
   .exit-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
@@ -245,6 +247,18 @@
   .wave-down { display: block; width: 100%; line-height: 0; }
   .wave-up { display: block; width: 100%; line-height: 0; transform: rotate(180deg); }
 
+
+  /* ── Booking section ── */
+  .booking-wrap { background: #0f0f0f; position: relative; overflow: hidden; }
+  .booking-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(29,158,117,0.12) 0%, transparent 70%); pointer-events: none; }
+  .booking-wrap .booking { position: relative; z-index: 1; }
+  .booking-wrap .booking-title { color: #fff; }
+  .booking-wrap .booking-sub { color: #666; }
+  .booking-wrap .section-label { margin-bottom: 0.8rem; }
+  .booking-wrap::before { content: ''; display: block; height: 3px; background: linear-gradient(90deg, transparent, #1D9E75, transparent); }
+  .booking-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .booking-feat { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: #555; font-weight: 300; }
+
 </style>
 
 <div id="progress-bar"></div>
@@ -257,11 +271,11 @@
 <!-- Social proof ticker -->
 <div class="ticker-wrap">
   <div class="ticker-track">
-    <span>TikTok Growth</span><span>High-Ticket Sales</span><span>Faceless Brands</span>
+    <span>TikTok Growth</span><span>High Ticket Sales</span><span>Faceless Brands</span>
     <span>200+ Members</span><span>No Experience Needed</span><span>Instagram Growth</span>
     <span>YouTube Monetisation</span><span>First Sale in 90 Days</span><span>Work From Anywhere</span>
     <!-- duplicate for seamless loop -->
-    <span>TikTok Growth</span><span>High-Ticket Sales</span><span>Faceless Brands</span>
+    <span>TikTok Growth</span><span>High Ticket Sales</span><span>Faceless Brands</span>
     <span>200+ Members</span><span>No Experience Needed</span><span>Instagram Growth</span>
     <span>YouTube Monetisation</span><span>First Sale in 90 Days</span><span>Work From Anywhere</span>
   </div>
@@ -380,7 +394,7 @@
     </div>
     <div class="pillar">
       <div class="pillar-num">02</div>
-      <div class="pillar-tag">High-Ticket Sales</div>
+      <div class="pillar-tag">High Ticket Sales</div>
       <h3>Close calls and earn more than a day on site</h3>
       <p>We teach you how to get on calls, build trust, and close high ticket deals from your very first sales conversation.</p>
     </div>
@@ -549,12 +563,20 @@
   </div>
 </div>
 
-<section class="booking" id="booking">
-  <div class="section-label">Get started</div>
-  <h2 class="booking-title">BOOK YOUR FREE CALL. START THIS WEEK.</h2>
-  <p class="booking-sub">30 minutes. No pitch. No BS. Just a straight conversation about where you're at and how to get to where you want to be.</p>
-  <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="btn-book" style="display:inline-block; text-decoration:none; padding: 1rem 2.4rem;">Book My Free Call →</a>
-  <p class="booking-disclaimer">No spam. No obligation. Just a real conversation.</p>
+<section class="booking-wrap" id="booking">
+  <div class="booking-glow"></div>
+  <div class="booking">
+    <div class="section-label" style="color:#5DCAA5;">Get started</div>
+    <h2 class="booking-title">BOOK YOUR FREE CALL.<br>START THIS WEEK.</h2>
+    <p class="booking-sub">30 minutes. No pitch. No BS. Just a straight conversation about where you're at and how to get to where you want to be.</p>
+    <a href="https://calendly.com/mangansaless/free-strategy-call" target="_blank" class="btn-book" style="display:inline-block; text-decoration:none; padding: 1rem 2.4rem;">Book My Free Call →</a>
+    <p class="booking-disclaimer">No spam. No obligation. Just a real conversation.</p>
+    <div class="booking-features">
+      <div class="booking-feat"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>Free, no credit card</div>
+      <div class="booking-feat"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>30 minute call</div>
+      <div class="booking-feat"><svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>Walk away with a clear plan</div>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -650,6 +672,8 @@ backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smo
 
 // Animated counters
 function animateCount(el, target, suffix, duration) {
+  el.classList.add('counted');
+  if (target === 0) { el.textContent = '$0'; return; }
   let start = 0;
   const step = Math.ceil(target / (duration / 16));
   const timer = setInterval(() => {
