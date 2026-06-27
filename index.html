@@ -90,7 +90,8 @@
   .testi { background: #f7f7f5; padding: 5rem 2rem; }
   .testi-inner { max-width: 860px; margin: 0 auto; }
   .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
-  .testi-card { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1.5rem; }
+  .testi-card { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1.5rem; overflow: hidden; }
+  .testi-img { width: calc(100% + 3rem); margin: -1.5rem -1.5rem 1.2rem -1.5rem; display: block; aspect-ratio: 4/5; object-fit: cover; }
   .testi-stars { color: #EF9F27; font-size: 0.85rem; margin-bottom: 0.8rem; letter-spacing: -1px; }
   .testi-card p { font-size: 0.9rem; color: #444; font-weight: 300; line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
   .testi-author { display: flex; align-items: center; gap: 0.75rem; }
@@ -506,27 +507,30 @@
     <p class="section-sub">These are real people who started with zero online experience.</p>
     <div class="testi-grid">
       <div class="testi-card">
+        <img class="testi-img" src="images/testi-chippy.png" alt="Jake M. before and after - carpenter to remote high ticket closer">
         <div class="testi-stars">★★★★★</div>
-        <p>"I was a sparky working 60 hour weeks. Six months in I closed my first high ticket client and never looked back."</p>
+        <p>"I was a chippy on the tools 60 hours a week. Six months in I closed my first high ticket client and never looked back."</p>
         <div class="testi-author">
           <div class="testi-avatar">JM</div>
-          <div><div class="testi-name">Jake M.</div><div class="testi-role">Electrician → Online Coach</div></div>
+          <div><div class="testi-name">Jake M.</div><div class="testi-role">Carpenter → Remote High Ticket Closer</div></div>
         </div>
       </div>
       <div class="testi-card">
+        <img class="testi-img" src="images/testi-factory.png" alt="Tyler R. before and after - factory worker to sales agency owner">
         <div class="testi-stars">★★★★★</div>
-        <p>"Never made a video in my life. Now my faceless page brings in leads every week without me lifting a tool."</p>
+        <p>"Never sold a thing in my life. Now I run my own sales agency closing deals every week without setting foot on the factory floor."</p>
         <div class="testi-author">
           <div class="testi-avatar">TR</div>
-          <div><div class="testi-name">Tyler R.</div><div class="testi-role">Plumber → Content Creator</div></div>
+          <div><div class="testi-name">Tyler R.</div><div class="testi-role">Factory Worker → Sales Agency Owner</div></div>
         </div>
       </div>
       <div class="testi-card">
+        <img class="testi-img" src="images/testi-labourer.png" alt="Sam K. before and after - labourer to content creator">
         <div class="testi-stars">★★★★★</div>
         <p>"The community is the real deal. No hype, just people showing their work and helping each other grow."</p>
         <div class="testi-author">
           <div class="testi-avatar">SK</div>
-          <div><div class="testi-name">Sam K.</div><div class="testi-role">Builder → Gains Academy Member</div></div>
+          <div><div class="testi-name">Sam K.</div><div class="testi-role">Labourer → Content Creator</div></div>
         </div>
       </div>
     </div>
