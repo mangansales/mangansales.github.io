@@ -100,11 +100,18 @@
   .testi-role { font-size: 0.76rem; color: #aaa; }
 
   @media (max-width: 768px) {
-    .testi { padding: 3rem 0; }
+    .testi { padding: 2rem 0; }
     .testi-inner { padding: 0; }
-    .testi-grid { gap: 0.2rem; margin-top: 1.5rem; }
-    .testi-card { border-radius: 4px; }
-    .testi-img { border-radius: 4px; }
+    .testi-grid { gap: 0.15rem; margin-top: 1rem; }
+    .testi-card { border-radius: 3px; }
+    .testi-img { border-radius: 3px; }
+    .testi-written { grid-template-columns: repeat(3, 1fr) !important; gap: 0.4rem !important; margin: 1rem 0.3rem 0 !important; }
+    .testi-written > div { padding: 0.8rem !important; border-radius: 8px !important; }
+    .testi-written > div p { font-size: 0.72rem !important; margin-bottom: 0.7rem !important; line-height: 1.5 !important; }
+    .testi-written > div > div:first-child { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; }
+    .testi-name-text { font-size: 0.72rem !important; }
+    .testi-role-text { font-size: 0.65rem !important; }
+    .testi-avatar-circle { width: 28px !important; height: 28px !important; font-size: 0.65rem !important; }
   }
 
   .booking { max-width: 580px; margin: 0 auto; padding: 6rem 2rem; text-align: center; }
@@ -356,6 +363,63 @@
   </div>
 </section>
 
+<section class="testi">
+  <div class="testi-inner">
+    <div class="section-label">Real results</div>
+    <h2 class="section-title">TRADIES WHO MADE THE SWITCH</h2>
+    <p class="section-sub">These are real people who started with zero online experience.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <img class="testi-img" src="images/before_after1.png" alt="Tradie before and after - tools to high ticket sales">
+      </div>
+      <div class="testi-card">
+        <img class="testi-img" src="images/before_after_2.png" alt="Tradie before and after - construction to online income">
+      </div>
+      <div class="testi-card">
+        <img class="testi-img" src="images/before_after_3.png" alt="Tradie before and after - site to remote sales income">
+      </div>
+    </div>
+
+    <!-- Written testimonials -->
+    <div class="testi-written" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2.5rem;">
+      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
+        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
+        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"I was a sparky working 60 hour weeks. Six months in I closed my first high ticket client and never looked back."</p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div class="testi-avatar-circle" style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">JM</div>
+          <div>
+            <div class="testi-name-text" style="font-size:0.85rem; font-weight:600; color:#fff;">Jake M.</div>
+            <div class="testi-role-text" style="font-size:0.75rem; color:#666;">Electrician → Online Coach</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
+        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
+        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"Never made a video in my life. Now my faceless page brings in leads every week without me lifting a tool."</p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div class="testi-avatar-circle" style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">TR</div>
+          <div>
+            <div class="testi-name-text" style="font-size:0.85rem; font-weight:600; color:#fff;">Tyler R.</div>
+            <div class="testi-role-text" style="font-size:0.75rem; color:#666;">Plumber → Content Creator</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
+        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
+        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"The community is the real deal. No hype, just people showing their work and helping each other grow."</p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div class="testi-avatar-circle" style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">SK</div>
+          <div>
+            <div class="testi-name-text" style="font-size:0.85rem; font-weight:600; color:#fff;">Sam K.</div>
+            <div class="testi-role-text" style="font-size:0.75rem; color:#666;">Builder → Gains Academy Member</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- How it works -->
 <section class="howitworks reveal">
   <div class="howitworks-inner">
@@ -507,62 +571,6 @@
     </div>
   </div>
 </div>
-
-<section class="testi">
-  <div class="testi-inner">
-    <div class="section-label">Real results</div>
-    <h2 class="section-title">TRADIES WHO MADE THE SWITCH</h2>
-    <p class="section-sub">These are real people who started with zero online experience.</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <img class="testi-img" src="images/before_after1.png" alt="Tradie before and after - tools to high ticket sales">
-      </div>
-      <div class="testi-card">
-        <img class="testi-img" src="images/before_after_2.png" alt="Tradie before and after - construction to online income">
-      </div>
-      <div class="testi-card">
-        <img class="testi-img" src="images/before_after_3.png" alt="Tradie before and after - site to remote sales income">
-      </div>
-    </div>
-
-    <!-- Written testimonials -->
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2.5rem;">
-      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
-        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
-        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"I was a sparky working 60 hour weeks. Six months in I closed my first high ticket client and never looked back."</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">JM</div>
-          <div>
-            <div style="font-size:0.85rem; font-weight:600; color:#fff;">Jake M.</div>
-            <div style="font-size:0.75rem; color:#666;">Electrician → Online Coach</div>
-          </div>
-        </div>
-      </div>
-      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
-        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
-        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"Never made a video in my life. Now my faceless page brings in leads every week without me lifting a tool."</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">TR</div>
-          <div>
-            <div style="font-size:0.85rem; font-weight:600; color:#fff;">Tyler R.</div>
-            <div style="font-size:0.75rem; color:#666;">Plumber → Content Creator</div>
-          </div>
-        </div>
-      </div>
-      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
-        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
-        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"The community is the real deal. No hype, just people showing their work and helping each other grow."</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">SK</div>
-          <div>
-            <div style="font-size:0.85rem; font-weight:600; color:#fff;">Sam K.</div>
-            <div style="font-size:0.75rem; color:#666;">Builder → Gains Academy Member</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- FAQ -->
