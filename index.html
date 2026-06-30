@@ -101,19 +101,34 @@
   .testi-name { font-size: 0.83rem; font-weight: 500; color: #0f0f0f; }
   .testi-role { font-size: 0.76rem; color: #aaa; }
 
+  /* Rotating testimonial carousel */
+  .testi-carousel { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .testi-slot { background: #111; border: 0.5px solid #2a2a2a; border-radius: 12px; overflow: hidden; }
+  .testi-slot-img-wrap { width: 100%; aspect-ratio: 9/16; overflow: hidden; }
+  .testi-slot-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.5s ease; }
+  .testi-slot-body { padding: 1.3rem; transition: opacity 0.5s ease; }
+  .testi-slot-stars { color: #FFD700; font-size: 0.95rem; margin-bottom: 0.6rem; letter-spacing: -1px; }
+  .testi-slot-quote { font-size: 0.85rem; color: #ccc; font-weight: 300; line-height: 1.65; margin-bottom: 1.1rem; font-style: italic; }
+  .testi-slot-author { display: flex; align-items: center; gap: 0.7rem; }
+  .testi-slot-avatar { width: 36px; height: 36px; border-radius: 50%; background: #1D9E75; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.8rem; flex-shrink: 0; }
+  .testi-slot-name { font-size: 0.82rem; font-weight: 600; color: #fff; }
+  .testi-slot-role { font-size: 0.72rem; color: #888; }
+  .testi-fade-out { opacity: 0; }
+
   @media (max-width: 768px) {
     .testi { padding: 2rem 0; }
     .testi-inner { padding: 0; }
     .testi-grid { gap: 0.15rem; margin-top: 1rem; }
     .testi-card { border-radius: 3px; }
     .testi-img { border-radius: 3px; }
-    .testi-written { grid-template-columns: repeat(3, 1fr) !important; gap: 0.4rem !important; margin: 1rem 0.3rem 0 !important; }
-    .testi-written > div { padding: 0.8rem !important; border-radius: 8px !important; }
-    .testi-written > div p { font-size: 0.72rem !important; margin-bottom: 0.7rem !important; line-height: 1.5 !important; }
-    .testi-written > div > div:first-child { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; }
-    .testi-name-text { font-size: 0.72rem !important; }
-    .testi-role-text { font-size: 0.65rem !important; }
-    .testi-avatar-circle { width: 28px !important; height: 28px !important; font-size: 0.65rem !important; }
+    .testi-carousel { grid-template-columns: repeat(2, 1fr) !important; gap: 0.4rem !important; margin: 1rem 0.3rem 0 !important; }
+    .testi-slot { border-radius: 8px !important; }
+    .testi-slot-body { padding: 0.8rem !important; }
+    .testi-slot-quote { font-size: 0.72rem !important; margin-bottom: 0.7rem !important; line-height: 1.5 !important; }
+    .testi-slot-stars { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; }
+    .testi-slot-name { font-size: 0.72rem !important; }
+    .testi-slot-role { font-size: 0.62rem !important; }
+    .testi-slot-avatar { width: 28px !important; height: 28px !important; font-size: 0.65rem !important; }
   }
 
   .booking { max-width: 580px; margin: 0 auto; padding: 6rem 2rem; text-align: center; }
@@ -370,56 +385,111 @@
     <div class="section-label">Real results</div>
     <h2 class="section-title">TRADIES WHO MADE THE SWITCH</h2>
     <p class="section-sub">These are real people who started with zero online experience.</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <img class="testi-img" src="images/before_after1.png" alt="Tradie before and after - tools to high ticket sales">
+
+    <!-- Rotating testimonial carousel: 2 visible at a time, auto-cycling -->
+    <div class="testi-carousel" id="testiCarousel">
+      <div class="testi-slot" id="testiSlot0">
+        <div class="testi-slot-img-wrap"><img class="testi-slot-img" id="testiImg0" src="" alt=""></div>
+        <div class="testi-slot-body" id="testiBody0">
+          <div class="testi-slot-stars">★★★★★</div>
+          <p class="testi-slot-quote" id="testiQuote0"></p>
+          <div class="testi-slot-author">
+            <div class="testi-slot-avatar" id="testiAvatar0"></div>
+            <div>
+              <div class="testi-slot-name" id="testiName0"></div>
+              <div class="testi-slot-role" id="testiRole0"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="testi-card">
-        <img class="testi-img" src="images/before_after_2.png" alt="Tradie before and after - construction to online income">
-      </div>
-      <div class="testi-card">
-        <img class="testi-img" src="images/before_after_3.png" alt="Tradie before and after - site to remote sales income">
+      <div class="testi-slot" id="testiSlot1">
+        <div class="testi-slot-img-wrap"><img class="testi-slot-img" id="testiImg1" src="" alt=""></div>
+        <div class="testi-slot-body" id="testiBody1">
+          <div class="testi-slot-stars">★★★★★</div>
+          <p class="testi-slot-quote" id="testiQuote1"></p>
+          <div class="testi-slot-author">
+            <div class="testi-slot-avatar" id="testiAvatar1"></div>
+            <div>
+              <div class="testi-slot-name" id="testiName1"></div>
+              <div class="testi-slot-role" id="testiRole1"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Written testimonials -->
-    <div class="testi-written" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2.5rem;">
-      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
-        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
-        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"I was a sparky working 60 hour weeks. Six months in I closed my first high ticket client and never looked back."</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div class="testi-avatar-circle" style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">JM</div>
-          <div>
-            <div class="testi-name-text" style="font-size:0.85rem; font-weight:600; color:#fff;">Jake M.</div>
-            <div class="testi-role-text" style="font-size:0.75rem; color:#666;">Electrician → Online Coach</div>
-          </div>
-        </div>
-      </div>
-      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
-        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
-        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"Never made a video in my life. Now my faceless page brings in leads every week without me lifting a tool."</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div class="testi-avatar-circle" style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">TR</div>
-          <div>
-            <div class="testi-name-text" style="font-size:0.85rem; font-weight:600; color:#fff;">Tyler R.</div>
-            <div class="testi-role-text" style="font-size:0.75rem; color:#666;">Plumber → Content Creator</div>
-          </div>
-        </div>
-      </div>
-      <div style="background:#111; border: 0.5px solid #2a2a2a; border-radius:12px; padding:1.5rem;">
-        <div style="color:#FFD700; font-size:1rem; margin-bottom:0.6rem;">★★★★★</div>
-        <p style="font-size:0.9rem; color:#ccc; font-weight:300; line-height:1.7; margin-bottom:1.2rem; font-style:italic;">"The community is the real deal. No hype, just people showing their work and helping each other grow."</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div class="testi-avatar-circle" style="width:38px; height:38px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.85rem; flex-shrink:0;">SK</div>
-          <div>
-            <div class="testi-name-text" style="font-size:0.85rem; font-weight:600; color:#fff;">Sam K.</div>
-            <div class="testi-role-text" style="font-size:0.75rem; color:#666;">Builder → Gains Academy Member</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
+
+<script>
+(function() {
+  var testimonials = [
+    {
+      img: "images/before_after1.png",
+      alt: "Tradie before and after - tools to high ticket sales",
+      quote: "I was a sparky working 60 hour weeks. Six months in I closed my first high ticket client and never looked back.",
+      initials: "JM",
+      name: "Jake M.",
+      role: "Electrician → Online Coach"
+    },
+    {
+      img: "images/before_after_2.png",
+      alt: "Tradie before and after - construction to online income",
+      quote: "Never made a video in my life. Now my faceless page brings in leads every week without me lifting a tool.",
+      initials: "TR",
+      name: "Tyler R.",
+      role: "Plumber → Content Creator"
+    },
+    {
+      img: "images/before_after_3.png",
+      alt: "Tradie before and after - site to remote sales income",
+      quote: "The community is the real deal. No hype, just people showing their work and helping each other grow.",
+      initials: "SK",
+      name: "Sam K.",
+      role: "Builder → Gains Academy Member"
+    }
+  ];
+
+  var total = testimonials.length;
+  var index = 0; // index of the testimonial currently in slot 0; slot 1 is index+1
+
+  function fillSlot(slotNum, data) {
+    document.getElementById('testiImg' + slotNum).src = data.img;
+    document.getElementById('testiImg' + slotNum).alt = data.alt;
+    document.getElementById('testiQuote' + slotNum).textContent = '"' + data.quote + '"';
+    document.getElementById('testiAvatar' + slotNum).textContent = data.initials;
+    document.getElementById('testiName' + slotNum).textContent = data.name;
+    document.getElementById('testiRole' + slotNum).textContent = data.role;
+  }
+
+  // Initial fill (no fade, page just loaded)
+  fillSlot(0, testimonials[0 % total]);
+  fillSlot(1, testimonials[1 % total]);
+
+  function rotateSlot(slotNum, data) {
+    var img = document.getElementById('testiImg' + slotNum);
+    var body = document.getElementById('testiBody' + slotNum);
+    img.classList.add('testi-fade-out');
+    body.classList.add('testi-fade-out');
+    setTimeout(function() {
+      fillSlot(slotNum, data);
+      img.classList.remove('testi-fade-out');
+      body.classList.remove('testi-fade-out');
+    }, 500);
+  }
+
+  function advance() {
+    index = (index + 1) % total;
+    // Slot 0 gets the testimonial that was "next" before; slot 1 gets the one after that
+    rotateSlot(0, testimonials[index % total]);
+    rotateSlot(1, testimonials[(index + 1) % total]);
+  }
+
+  // Rotate every 4.5s - fast enough that all testimonials are seen quickly,
+  // slow enough to read.
+  setInterval(advance, 4500);
+})();
+</script>
 
 
 <!-- How it works -->
